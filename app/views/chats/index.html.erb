@@ -18,22 +18,22 @@ hello <br>
 <script>
 
 
-  navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+  // navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 
-  var constraints = {video: true, audio: false};
+  // var constraints = {video: true, audio: false};
 
-  function successCallback(localStream) {
-    window.stream = localStream; 
-    var video = document.querySelector("video");
-    video.src = window.URL.createObjectURL(localStream);
-    video.play();
-  }
+  // function successCallback(localStream) {
+  //   window.stream = localStream; 
+  //   var video = document.querySelector("video");
+  //   video.src = window.URL.createObjectURL(localStream);
+  //   video.play();
+  // }
 
-  function errorCallback(error){
-    console.log("navigator.getUserMedia error: ", error);
-  }
+  // function errorCallback(error){
+  //   console.log("navigator.getUserMedia error: ", error);
+  // }
 
-  navigator.getUserMedia(constraints, successCallback, errorCallback);
+  // navigator.getUserMedia(constraints, successCallback, errorCallback);
 
  
 
