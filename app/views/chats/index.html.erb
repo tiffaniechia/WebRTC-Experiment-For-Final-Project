@@ -5,10 +5,15 @@
         <script src="http://simplewebrtc.com/latest.js"></script> 
         <style>
             #remoteVideos video {
+                position: absolute;
                 height: 500px;
+                left:0px;
+                top:0px;
+                z-index:-1;
             }
             #localVideo {
-                height: 150px;
+                height: 100px;
+                border: 1px solid white;
             }
         </style>
     </head>
