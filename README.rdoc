@@ -1,28 +1,18 @@
-== README
+== WebRTC Experimentation
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project has been made in parallel to the [Language Learning Project](https://github.com/fredmcgroarty/language_learning_project) in order to  experiment on WebRTC technologies. 
 
-Things you may want to cover:
+The [Language Learning Project](https://github.com/fredmcgroarty/language_learning_project) is a Final Project for [Makers Academy](http://www.makersacademy.com) by a team of 6: 
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+[Tiffanie Chia](https://github.com/tiffaniechia)
+[Andrew Cumine](https://github.com/ajcumine)
+[Fred Mcgroarty](https://github.com/fredmcgroarty)
+[Mark Mekhaiel](https://github.com/MarkMekhaiel)
+[Ruslan Vikhor](https://github.com/RuslanVikhor)
+[Karolis Noreika](https://github.com/KanoTheDev)
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+
+
+
+
