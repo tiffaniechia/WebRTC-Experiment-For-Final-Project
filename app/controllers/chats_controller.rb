@@ -2,6 +2,7 @@ class ChatsController < ApplicationController
 
 
   def index
+    @chats = Chat.all
   end  
 
 
@@ -12,21 +13,15 @@ class ChatsController < ApplicationController
   end 
 
 
-  def new
 
-
-
-  end  
 
   def create
     @chat = Chat.new
-    @chat.booking_time = Time.now + 4.seconds
-    puts '******************************************'
+    @chat.save
+    @chat.booking_time = @chat.created_at + 4.seconds
     puts @chat.booking_time
     @chat.save
     redirect_to '/chats'
-
-
 
   end  
 
