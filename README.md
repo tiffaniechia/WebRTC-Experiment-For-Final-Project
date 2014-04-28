@@ -2,7 +2,7 @@
 
 ### This repository has been made for the [Language Learning Project](https://github.com/fredmcgroarty/language_learning_project) in order to  experiment on WebRTC technologies. 
 
-The [Language Learning Project](https://github.com/fredmcgroarty/language_learning_project) is a Final Project for [Makers Academy](http://www.makersacademy.com) by a team of 6: 
+#### The [Language Learning Project](https://github.com/fredmcgroarty/language_learning_project) is a Final Project for [Makers Academy](http://www.makersacademy.com) by a team of 6: 
 
 [Tiffanie Chia](https://github.com/tiffaniechia)
 
