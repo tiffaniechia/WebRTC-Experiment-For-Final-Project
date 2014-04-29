@@ -5,14 +5,11 @@ class ChatsController < ApplicationController
     @chats = Chat.all
   end  
 
-
   def show
     @chats = Chat.find_by(uid: params[:id])
 
     raise 'Oops' unless @chats
   end 
-
-
 
 
   def create
