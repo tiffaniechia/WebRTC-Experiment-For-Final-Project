@@ -75,7 +75,7 @@
     </script>
 
 
-    <script type="text/javascript">
+    <script>
 
 
     $(document).ready(function(){
@@ -88,15 +88,20 @@
         if(e.keyCode !== 13)
           return;
 
+
         var value = this.value; 
 
         $.post('/messages', {message: value})
+
+         $('#message').val('')
       });
+
+      // var username = 
 
       var channel = ws.subscribe('chat');
       channel.bind('new', function(chat) {
         var el = $('#chat');
-        el.append('<div>' + chat.message + '</div>');
+        el.append(  '<div>'  + chat.message + '</div>');
       });
 
 
