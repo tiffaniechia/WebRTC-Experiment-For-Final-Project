@@ -7,7 +7,7 @@ class ChatsController < ApplicationController
 
   def show
     @chats = Chat.find_by(uid: params[:id])
-
+    @time_in_seconds = @chats.end_time.to_i - Time.now.to_i
     raise 'Oops' unless @chats
   end 
 
