@@ -16,7 +16,7 @@ class ChatsController < ApplicationController
     @chat = Chat.new
     @chat.save
     @chat.booking_time = @chat.created_at + 4.seconds
-    puts @chat.booking_time
+    @chat.end_time = @chat.booking_time + 1.hours
     @chat.save
     redirect_to '/chats'
 

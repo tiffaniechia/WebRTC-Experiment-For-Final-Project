@@ -3,6 +3,9 @@
 <html>
   <head>
     <script src="http://simplewebrtc.com/latest.js"></script> 
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="time_circles.js"></script>
+    <link href="time_circles.css" rel="stylesheet">   
       <style>
           #remoteVideos video {
               position: absolute;
@@ -94,6 +97,26 @@
   </head>
   <body>
 
+
+    <%= @chats.end_time %>
+
+    <div class="example" data-timer= dateSeconds ></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <video id="localVideo"></video>
     <div id="remoteVideos"></div>
     <div id="chat"></div>
@@ -123,7 +146,26 @@
                 <span id="sec">00</span>
                 <span id="suffix">--</span>
             </div> -->
-    </div>        
+    </div>     
+
+
+
+
+
+
+
+
+    <script>
+
+      var dateSeconds = chats.end_time.to_i - Time.now.to_i
+
+    </script>
+
+
+
+
+
+
 
     <script>   
       var webrtc = new SimpleWebRTC({
