@@ -1,3 +1,3 @@
 $(document).ready(function(){
-  $(".example").TimeCircles();
+  $(".timer").TimeCircles({time: {Days: {show:false}, Hours: {show:false},Seconds: {show:false}}});
 });

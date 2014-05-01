@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-
+//= simplewebrtc
 //= require websocket_rails/main
 //= require_tree .
 

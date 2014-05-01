@@ -40,3 +40,8 @@
     margin-top: 0.4em;
     font-weight: bold;
 }
+
+.timer {
+    width:300px;
+    height: 300px;
+}
