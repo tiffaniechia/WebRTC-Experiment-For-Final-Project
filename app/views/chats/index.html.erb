@@ -6,7 +6,6 @@ buttons
   <%@chats.each do |chat|%>
     <% if (Time.now.to_i >= chat.booking_time.to_i) && ( Time.now.to_i <= chat.booking_time.to_i + 9) %>
       <%= link_to 'go to lesson', chat_path(chat.uid)%>
-
     <% end%>
   <% end%>
 <% end%>
