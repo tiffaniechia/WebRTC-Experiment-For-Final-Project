@@ -1,111 +1,79 @@
 
 <!DOCTYPE html>
 <html>
-  <head>
-    <script src="http://simplewebrtc.com/latest.js"></script> 
-      <style>
-          #remoteVideos video {
-              position: absolute;
-              height: 500px;
-              left:0px;
-              top:0px;
-              z-index:-1;
-          }
-          #localVideo {
-              height: 100px;
-              border: 1px solid white;
-          }
+<head>
+  <script src="http://simplewebrtc.com/latest.js"></script> 
+  <style>
+    #remoteVideos video {
+        position: absolute;
+        height: 500px;
+        left:0px;
+        top:0px;
+        z-index:-1;
+    }
+    #localVideo {
+        height: 100px;
+        border: 1px solid white;
+    }
 
-          #chat{
-             height: 450px;
-             width: 300px;
-             border: 1px solid gray;
-             position: absolute;
-             left:700px;
-             top: 0px;
-             overflow:scroll;
-          }
-
-
-          #chat div {
-            padding:  2px 11px;
-            border: 1px solid gray;
-            word-wrap: break-word;
-
-          }
-
-         p{
-            position: absolute;
-            left:700px;
-            top: 445px;
-           
-          }
-
-          input{
-            position: absolute;
-            left:700px;
-            top: 480px;
-            width: 300px;
-          }
+    #chat{
+       height: 450px;
+       width: 300px;
+       border: 1px solid gray;
+       position: absolute;
+       left:700px;
+       top: 0px;
+       overflow:scroll;
+    }
 
 
-*{
-    margin:0;
-    padding:0;
-    font-family:sans-serif;
-    font-size:14px;
-}
+    #chat div {
+      padding:  2px 11px;
+      border: 1px solid gray;
+      word-wrap: break-word;
 
-.analog-clock{
-    width:140px;
-    height:140px;
-}
+    }
 
-#clock-face{
-    stroke:black;
-    stroke-width:2px;
-    fill:white;
-}
+    p{
+      position: absolute;
+      left:700px;
+      top: 445px;
+     
+    }
 
-#h-hand, #m-hand, #s-hand, #s-tail{
-    stroke:black;
-    stroke-linecap:round;
-}
+    input{
+      position: absolute;
+      left:700px;
+      top: 480px;
+      width: 300px;
+    }
 
-#h-hand{
-    stroke-width:3px;
-}
 
-#m-hand{
-    stroke-width:2px;
-}
+    *{
+      margin:0;
+      padding:0;
+      font-family:sans-serif;
+      font-size:14px;
+    }     
 
-#s-hand{
-    stroke-width:1px;
-}
+    .main-chat{
+      height: 500px;
+    }
 
-.time-text{
-    text-align:center;
+    .timer-div{
+      height:; 300px;
+      text-align: center;
+    }
 
-}         
+    .timer{
+      margin:auto;
+    }
 
-.main-chat{
-  height: 500px;
-}
+  </style>
 
-.timer-div{
-  height:; 300px;
-  text-align: center;
-}
+</head>
 
-.timer{
-
-  margin:auto;
-}
-
-      </style>
-  </head>
-  <body>
+<body>
 
   <div class = "main-chat"> 
     <video id="localVideo"></video>
@@ -118,83 +86,58 @@
   <div class= "timer-div">
     <%= @chats.end_time %>
     <%= @time_in_seconds %>
-
     <div class="timer" data-timer="<%= @time_in_seconds %>" ></div>
  </div>
-<script>
 
-window.onload = myFunction 
+  <script>
+    // TimeAlerts
+    window.onload = myFunction 
 
-function myFunction()
-{
-  setTimeout(function(){alert("5 minutes till swap")},'<%= (@time_in_seconds  / 2 - 300) * 1000 %>');
-  setTimeout(function(){alert("time to swap")},'<%= (@time_in_seconds  / 2 ) * 1000 %>');
-  setTimeout(function(){alert("5 minutes till end of session")},'<%= (@time_in_seconds  - 300) * 1000 %>');
-  setTimeout(function(){alert("1 minute till end of session")},'<%= (@time_in_seconds  - 60) * 1000 %>');
-  setTimeout(function(){alert("end of session")},'<%= (@time_in_seconds-1) * 1000 %>');
-  setTimeout("location.href = '/';",'<%= (@time_in_seconds) * 1000 %>');
-  }
-</script>
+    function myFunction()
+    {
+      setTimeout(function(){alert("5 minutes till swap")},'<%= (@time_in_seconds  / 2 - 300) * 1000 %>');
+      setTimeout(function(){alert("time to swap")},'<%= (@time_in_seconds  / 2 ) * 1000 %>');
+      setTimeout(function(){alert("5 minutes till end of session")},'<%= (@time_in_seconds  - 300) * 1000 %>');
+      setTimeout(function(){alert("1 minute till end of session")},'<%= (@time_in_seconds  - 60) * 1000 %>');
+      setTimeout(function(){alert("end of session")},'<%= (@time_in_seconds-1) * 1000 %>');
+      setTimeout("location.href = '/';",'<%= (@time_in_seconds) * 1000 %>');
+      }
+   
+   // SimpleWebRTC
+    var webrtc = new SimpleWebRTC({
+      // the id/element dom element that will hold "our" video
+      localVideoEl: 'localVideo',
+      // the id/element dom element that will hold remote videos
+      remoteVideosEl: 'remoteVideos',
+      // immediately ask for camera access
+      autoRequestMedia: true
+    });
+    // we have to wait until it's ready
+    webrtc.on('readyToCall', function () {
+      // you can name it anything
+      webrtc.joinRoom('<%= params[:id] %>');
+    });
 
-
-    <script>   
-      var webrtc = new SimpleWebRTC({
-        // the id/element dom element that will hold "our" video
-        localVideoEl: 'localVideo',
-        // the id/element dom element that will hold remote videos
-        remoteVideosEl: 'remoteVideos',
-        // immediately ask for camera access
-        autoRequestMedia: true
-      });
-
-
-      // we have to wait until it's ready
-      webrtc.on('readyToCall', function () {
-        // you can name it anything
-        webrtc.joinRoom('<%= params[:id] %>');
-      });
-    </script>
-
-
-    <script>
-
-
+    // Websocket -textchat
     $(document).ready(function(){
-
-
       ws = new WebSocketRails(window.location.host + '/websocket');
-
       $('#message').bind('keypress', function(e){
-
         if(e.keyCode !== 13)
           return;
-
-
         var value = this.value; 
-
         $.post('/messages', {message: value})
-
          $('#message').val('')
-      });
-
-       
-
+      });    
       var channel = ws.subscribe('chat');
       channel.bind('new', function(chat) {
         var el = $('#chat');
         el.append(  '<div>'  + chat.user_name + ": "+ chat.message + '</div>');
       });
-
-
-
     });
 
+  </script>
 
-
-    </script>
-
-
-  </body>
+</body>
 </html>
 
 
