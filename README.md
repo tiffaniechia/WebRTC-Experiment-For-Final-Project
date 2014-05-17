@@ -1,6 +1,6 @@
 ##WebRTC Experimentation
 
-This repository has been made for the [Language Learning Project](https://github.com/fredmcgroarty/language_learning_project) in order to  experiment on WebRTC technologies.
+This repository has been made for the [Language Learning Project](https://github.com/tiffaniechia/Language-Learning-Polyglt-Final-Project) in order to  experiment on WebRTC technologies.
 
 
 The web-chat feature of this final project had several goals, all of which has been tested on this repository:
@@ -10,7 +10,7 @@ The web-chat feature of this final project had several goals, all of which has b
 4. Enabled timed link whereby link only appears when a session time is ready (default of 4 seconds after creation)
 
 
-##### The [Language Learning Project (POLYGLT)](https://github.com/fredmcgroarty/language_learning_project) is a Final Project for [Makers Academy](http://www.makersacademy.com). It is social networking site for language learning that utilises WebRTC, websockets, and a whole host of gems.
+##### The [Language Learning Project (POLYGLT)](https://github.com/tiffaniechia/Language-Learning-Polyglt-Final-Project) is a Final Project for [Makers Academy](http://www.makersacademy.com). It is social networking site for language learning that utilises WebRTC, websockets, and a whole host of gems.
 
 #### You can view the POLYGLT website [here](www.polyglt.com).
 
